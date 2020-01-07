@@ -1,0 +1,53 @@
+html {
+    height:100%;
+}
+
+body {
+    background-color: #1C1D21;
+    min-height: 100%;
+
+
+}
+
+.logo {
+    font-family:'Fredoka One', cursive;
+    text-align: left;
+
+    color:#F1E3E4;
+    font-size:25px;
+}
+
+.text{
+    font-family:'Fredoka One', cursive;
+    text-align: left;
+    color:#F1E3F6;
+    font-size:20px;
+}
+
+.content {
+    overflow: auto;
+    height: 800px;
+}
+
+.content button {
+    transision:1s;
+    font-family:'Fredoka One', cursive;
+    background-color: #572D3E;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position:relative;
+    padding: 10px;
+
+}
+
+.content img {
+    position:relative;
+    max-height: 80%;
+    max-width: 80%;
+}
+button:hover {
+    background-color: #321E36;
+
+}
