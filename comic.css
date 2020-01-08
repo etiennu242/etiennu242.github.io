@@ -39,13 +39,16 @@ body {
 }
 
 
-.content img {
-    position:relative;
-    max-height: 100%;
-    max-width: 100%;
-}
+
 
 .Frame {
+    position:relative;
+
+}
+.Frame img {
+    position:relative;
+    max-height: 90%;
+    max-width: 90%;
     width: 500px;
     height: auto;
 }
