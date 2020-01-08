@@ -10,8 +10,8 @@ function slider(act) {
     } else if (i > 0){
         i--;
     }
-
     document.getElementById('comic').src = imgs[i];
+    document.getElementById('page-counter').innerHTML = ('Page ' + (i+1));
 }
 
 document.onkeydown = function(key) {

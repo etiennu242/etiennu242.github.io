@@ -5,8 +5,6 @@ html {
 body {
     background-color: #1C1D21;
     min-height: 100%;
-
-
 }
 
 .logo {
@@ -38,15 +36,27 @@ body {
     cursor: pointer;
     position:relative;
     padding: 10px;
-
 }
+
 
 .content img {
     position:relative;
-    max-height: 80%;
-    max-width: 80%;
+    max-height: 38%;
+    max-width: 38%;
 }
+
+.content span {
+    font-family:'Fredoka One', cursive;
+    color:#AAAAAA;
+    padding: 10px;
+    width: 20px;
+}
+
+.buttons {
+    position: relative;
+    margin-left: 14%;
+}
+
 button:hover {
     background-color: #321E36;
-
 }

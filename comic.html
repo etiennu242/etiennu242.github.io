@@ -19,11 +19,14 @@
 
         <div class="content">
 
-            <button type="button" onclick="slider('<')" name="left"> < </button>
-
-            <img id="comic" src="img/comic/1.jpg" alt="">
-
-            <button type="button" onclick="slider('>')" name="right"> > </button>
+            <div class="Frame">
+                <img id="comic" src="img/comic/1.jpg" alt="">
+            </div>
+            <div class="buttons">
+                <button type="button" onclick="slider('<')" name="left"><</button>
+                <span id="page-counter">Page 1</span>
+                <button type="button" onclick="slider('>')" name="right">></button>
+            </div>
 
         </div>
     </body>
