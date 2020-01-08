@@ -41,8 +41,13 @@ body {
 
 .content img {
     position:relative;
-    max-height: 38%;
-    max-width: 38%;
+    max-height: 50%;
+    max-width: 50%;
+}
+
+.Frame {
+    width: 1000px;
+    height: auto;
 }
 
 .content span {
