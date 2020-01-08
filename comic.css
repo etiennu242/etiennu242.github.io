@@ -41,16 +41,16 @@ body {
 
 .content img {
     position:relative;
-    max-height: 50%;
-    max-width: 50%;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .Frame {
-    width: 1000px;
+    width: 500px;
     height: auto;
 }
 
-.content span {
+.buttons span {
     font-family:'Fredoka One', cursive;
     color:#AAAAAA;
     padding: 10px;
