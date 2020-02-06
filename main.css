@@ -5,8 +5,10 @@ html {
 body {
     background-color: white;
     min-height: 100%;
+}
 
-
+a {
+    text-decoration: none; 
 }
 
 .logo {
@@ -28,8 +30,6 @@ body {
     padding: 10px;
 
 }
-
-
 
 .content img:hover{
     filter:grayscale(100%);
