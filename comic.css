@@ -31,7 +31,7 @@ a {
 }
 
 .content button {
-    transision:1s;
+    transition:1s;
     font-family: 'Alata', sans-serif;
     background-color: #572D3E;
     color: white;
