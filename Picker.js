@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 function Pick() {
-    spacing = document.getElementById('spacing-i').value;
 
     if (index_x % ((500/spacing)-1) == 0 && index_x > 0) {
         index_x = -1;
@@ -42,4 +41,27 @@ function Clear() {
     index_x = -1;
     index_y = 0;
     ctx.clearRect(0, 0, 500, 500);
+}
+
+function setSpacing(i) {
+    switch (i) {
+        case 1:
+            spacing = 250;
+            break;
+        case 2:
+            spacing = 125;
+            break;
+        case 3:
+            spacing = 100;
+            break;
+        case 4:
+            spacing = 50;
+            break;
+        case 5:
+            spacing = 25;
+            break;
+    
+        default:
+            break;
+    }
 }

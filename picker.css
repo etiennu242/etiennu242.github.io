@@ -45,6 +45,7 @@ html,body{
     outline: none;
     cursor: pointer;
 }
+
 .btn-run:hover{
     background-color: rgb(207, 207, 207); 
 }
@@ -55,35 +56,41 @@ html,body{
     margin-left: 10px;
 }
 
-#picker {
-    border: none;
-    margin-left: 10px;
-    /* width: 50px;
-    height: 50px; */
-    margin-top: 20px;
-    display: inline-block;
+
+#controls {
+    margin-top: 15px;
 }
 
-#spacing-i {
-    margin-left: 20px;
+#botbtns {
+    margin-left: 10px;
+}
+.btn-col {
+    /* margin-left: 10px; */
     display: inline-block;
     transition:0.1s;
     font-family: 'Alata', sans-serif;
     font-size:15px;
     background-color: white;
     border: 1px solid black;
-    padding: 5px;
-    width: 100px;
+    padding: 3px;
     outline: none;
     cursor: pointer;
 }
-#spacing-i:hover{
+.btn-col:hover{
     background-color: rgb(207, 207, 207); 
 }
 
+#picker {
+    border: none;
+    margin-left: 30px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+
 #controls-label {
     margin-left: 9px;
-    margin-right: -10px;
+    
     display: inline;
     font-family: 'Alata', sans-serif;
     font-size:15px;

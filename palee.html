@@ -22,11 +22,20 @@
             <image id="final"></image>
         </div>
         <div id="controls">
-            <label id="controls-label" for="spacing">Size of one color (5-250): </label>
-            <input type="number" id="spacing-i" min="5" max="250" step="5" value=50 name="spacing">
-            <input type="color" id="picker">
-            <button class="btn-run" onclick="Pick()">Pick</button>
-            <button class="btn-run" onclick="Save()">Save</button>
+            <div>
+                <label id="controls-label">Number of colors on palette: </label>
+            </div>
+            <div id="botbtns">
+                <button class="btn-col" onclick="setSpacing(1)">4 col</button>
+                <button class="btn-col" onclick="setSpacing(2)">16 col</button>
+                <button class="btn-col" onclick="setSpacing(3)">25 col</button>
+                <button class="btn-col" onclick="setSpacing(4)">100 col</button>
+                <button class="btn-col" onclick="setSpacing(5)">400 col</button>
+
+                <input type="color" id="picker">
+                <button class="btn-run" onclick="Pick()">Pick</button>
+                <button class="btn-run" onclick="Save()">Save</button>
+            </div>
         </div>
     </div>
 
