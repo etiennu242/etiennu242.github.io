@@ -13,27 +13,45 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 function Pick() {
+    ChangeIndexes();
 
+    const clr = HexToRGB(document.getElementById("picker").value);
+    ctx.fillStyle = 'rgb(' + clr.r + ',' + clr.g + ',' + clr.b + ')';
+    ctx.fillRect(index_x * spacing, index_y * spacing, spacing, spacing);
+}
+
+function Generate(){
+    Clear();
+    const clr = HexToRGB(document.getElementById("picker").value);
+    for (let i = 0; i < (500/spacing) * (500/spacing); i++) {
+        ChangeIndexes();
+
+        let r = (Math.floor(Math.random() * 256) + clr.r) / 2;
+        let g = (Math.floor(Math.random() * 256) + clr.g) / 2;
+        let b = (Math.floor(Math.random() * 256) + clr.b) / 2;
+        ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+        ctx.fillRect(index_x * spacing, index_y * spacing, spacing, spacing);
+    }
+}
+
+function ChangeIndexes() {
     if (index_x % ((500/spacing)-1) == 0 && index_x > 0) {
         index_x = -1;
         index_y++;
     }
     index_x++;
-    ctx.fillStyle = document.getElementById("picker").value;
-    ctx.fillRect(index_x * spacing, index_y * spacing, spacing, spacing);
-
 }
 
 function HexToRGB(value) {
     let r = parseInt(value.slice(1,3), 16);
     let g = parseInt(value.slice(3,5), 16);
     let b = parseInt(value.slice(5,7), 16);
-    console.log(r,g,b);
+
+    const a = {r: r, g: g, b: b};
+    return a;
 }
 
 function Save() {
-    // let img = canvas.toDataURL('image/png');
-    // document.write('<img src="'+img+'"/>');
     document.getElementById('final').src = canvas.toDataURL();
 }
 
