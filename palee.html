@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palee</title>
+    <link href="https://fonts.googleapis.com/css?family=Alata|Fascinate+Inline&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="picker.css">
+    <script src="Picker.js"></script>
+</head>
+<body>
+    <div class="top">
+        <p class="logo">Tatru Inli's Workshop</p>
+        <p class="name">palee</p>
+        <button class="btn-run" onclick="Clear()">Clear</button>
+    </div>
+
+    <div class="container">
+        <div id="result">
+            <canvas id="canvas"></canvas>
+            <image id="final"></image>
+        </div>
+        <div id="controls">
+            <label id="controls-label" for="spacing">Size of one color (5-250): </label>
+            <input type="number" id="spacing-i" min="5" max="250" step="5" value=50 name="spacing">
+            <input type="color" id="picker">
+            <button class="btn-run" onclick="Pick()">Pick</button>
+            <button class="btn-run" onclick="Save()">Save</button>
+        </div>
+    </div>
+
+    <script type="text/javascript"></script>
+</body>
+</html>
