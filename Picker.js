@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             if (drawingEnabled){
                 ctx.fillStyle = document.getElementById("picker").value;
                 ctx.fillRect(mPos.x-5, mPos.y-5, 10, 10);
-            } else {
-                ctx.clearRect(mPos.x-5, mPos.y-5, 10, 10);
+            } else if (eraser) {
+                ctx.clearRect(mPos.x-10, mPos.y-10, 20, 20);
             }
         }
       });
@@ -117,10 +117,16 @@ function getCursorPosition(canvas, event) {
 }
 
 function Drawing() {
+    if (eraser) {
+        eraser = false;
+    }
     drawingEnabled = !drawingEnabled;
 }
 
 function Eraser() {
+    if(drawingEnabled) {
+        drawingEnabled = false;
+    }
     eraser = !eraser;
 }
 
