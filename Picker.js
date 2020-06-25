@@ -136,7 +136,7 @@ function Eraser() {
 
 function AddFrame() {
     document.getElementById('final').src = canvas.toDataURL();
-    frames.push(canvas.toDataURL());
+    frames.push(canvas.toDataURL("image/png"));
 }
 
 function PlayAnimation() {
@@ -159,5 +159,14 @@ function animation() {
     }
     document.getElementById('final').src = frames[currentFrame];
 
+}
+
+function SaveAnimation() {
+    const newWindow = window.open();
+    newWindow.document.write("<html><body>");
+    frames.forEach(frame => {
+        newWindow.document.write('<img src="' + frame + '"></img>');
+    });
+    newWindow.document.write("</body></html>");
 }
 
