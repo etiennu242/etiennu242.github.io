@@ -5,6 +5,10 @@ let spacing = 50;
 let isDrawing = false;
 let drawingEnabled = false;
 let eraser = false;
+let animate = false;
+let frames = [];
+let currentFrame = -1;
+let interval;
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -128,5 +132,32 @@ function Eraser() {
         drawingEnabled = false;
     }
     eraser = !eraser;
+}
+
+function AddFrame() {
+    document.getElementById('final').src = canvas.toDataURL();
+    frames.push(canvas.toDataURL());
+}
+
+function PlayAnimation() {
+    if (animate) {
+        animate = false;
+        currentFrame = -1;
+        clearInterval(interval);
+        return;
+    } else {
+        animate = true;
+        interval = setInterval(animation, 100);
+        return;
+    }
+}
+
+function animation() {
+    currentFrame++;
+    if (currentFrame % frames.length == 0) {
+        currentFrame = 0;
+    }
+    document.getElementById('final').src = frames[currentFrame];
+
 }
 
