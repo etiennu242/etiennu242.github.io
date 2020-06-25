@@ -4,6 +4,7 @@ let index_y = 0;
 let spacing = 50;
 let isDrawing = false;
 let drawingEnabled = false;
+let eraser = false;
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -13,21 +14,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
     canvas.height = 500;
 
     canvas.addEventListener('mousedown', (event) => {
-        if(!isDrawing && drawingEnabled) {
+        if(!isDrawing && (drawingEnabled || eraser)) {
             isDrawing = true;
         }
     });
     canvas.addEventListener('mouseup', (event) => {
-        if(isDrawing && drawingEnabled) {
+        if(isDrawing && (drawingEnabled || eraser)) {
             isDrawing = false;
         }
     });
 
     canvas.addEventListener('mousemove', (event) => {
-        if (isDrawing === true && drawingEnabled) {
+        if (isDrawing === true) {
             const mPos = getCursorPosition(canvas, event);
-            ctx.fillStyle = document.getElementById("picker").value;
-            ctx.fillRect(mPos.x-5, mPos.y-5, 10, 10);
+            if (drawingEnabled){
+                ctx.fillStyle = document.getElementById("picker").value;
+                ctx.fillRect(mPos.x-5, mPos.y-5, 10, 10);
+            } else {
+                ctx.clearRect(mPos.x-5, mPos.y-5, 10, 10);
+            }
         }
       });
 });
@@ -113,5 +118,9 @@ function getCursorPosition(canvas, event) {
 
 function Drawing() {
     drawingEnabled = !drawingEnabled;
+}
+
+function Eraser() {
+    eraser = !eraser;
 }
 
