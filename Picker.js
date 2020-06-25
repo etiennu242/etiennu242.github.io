@@ -2,6 +2,8 @@ let canvas, ctx;
 let index_x = -1;
 let index_y = 0;
 let spacing = 50;
+let isDrawing = false;
+let drawingEnabled = false;
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -9,6 +11,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ctx = canvas.getContext('2d');
     canvas.width = 500;
     canvas.height = 500;
+
+    canvas.addEventListener('mousedown', (event) => {
+        if(!isDrawing && drawingEnabled) {
+            isDrawing = true;
+        }
+    });
+    canvas.addEventListener('mouseup', (event) => {
+        if(isDrawing && drawingEnabled) {
+            isDrawing = false;
+        }
+    });
+
+    canvas.addEventListener('mousemove', (event) => {
+        if (isDrawing === true && drawingEnabled) {
+            const mPos = getCursorPosition(canvas, event);
+            ctx.fillStyle = document.getElementById("picker").value;
+            ctx.fillRect(mPos.x-5, mPos.y-5, 10, 10);
+        }
+      });
 });
 
 
@@ -83,3 +104,14 @@ function setSpacing(i) {
             break;
     }
 }
+
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect();
+    const pos = {x: event.clientX - rect.left, y: event.clientY - rect.top}; 
+    return pos;
+}
+
+function Drawing() {
+    drawingEnabled = !drawingEnabled;
+}
+
