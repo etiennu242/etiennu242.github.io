@@ -8,7 +8,8 @@ let eraser = false;
 let animate = false;
 let frames = [];
 let currentFrame = -1;
-let interval;
+let interval = null;
+let lastFrame = null;
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -135,7 +136,8 @@ function Eraser() {
 }
 
 function AddFrame() {
-    document.getElementById('final').src = canvas.toDataURL();
+    document.getElementById('final').src = canvas.toDataURL()
+    lastFrame = ctx.getImageData(0,0,500,500);
     frames.push(canvas.toDataURL("image/png"));
 }
 
@@ -170,3 +172,7 @@ function SaveAnimation() {
     newWindow.document.write("</body></html>");
 }
 
+function PreviousFrame() {
+    frames.pop();
+    ctx.putImageData(lastFrame, 0, 0);
+}
