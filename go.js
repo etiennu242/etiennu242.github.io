@@ -8,9 +8,14 @@ let lastposX = null;
 let lastposY = null;
 let p1, p2;
 let scoreP1 = 0, scoreP2 = 0;
+const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
 
 
-
+window.addEventListener('load', (event) => {
+    ctx.textBaseline = "top";
+    ctx.font = "15px Alata";
+    DrawGrid();
+  });
 
 document.addEventListener("DOMContentLoaded", (event) => {
     canvas = document.getElementById('canvas');
@@ -27,7 +32,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    DrawGrid();
     for (let i = 0; i < 150; i++) {
         stones.push(new Stone(15, 195, true));
         stones.push(new Stone(15, 226, false));
@@ -136,20 +140,23 @@ function DrawGrid(){
         ctx.beginPath();
         ctx.moveTo((31*x)+40, 40);
         ctx.lineTo((31*x)+40, (31*(res-1))+40);
-        
         ctx.lineWidth = 2;
         ctx.strokeStyle = "grey";
         ctx.stroke();
+        ctx.fillStyle = "black";
+        ctx.fillText(letters[x], (31*x)+35, 20);
     }
     for (let y = 0; y < res; y++) {
         ctx.beginPath();
         ctx.moveTo(40, (31*y)+40);
         ctx.lineTo((31*(res-1))+40, (31*y)+40);
-        
         ctx.lineWidth = 2;
         ctx.strokeStyle = "grey";
         ctx.stroke();
+        ctx.fillStyle = "black";
+        ctx.fillText(letters[y], 422, (31*y)+34);
     }
+    
 }
 function Clear() {
     ctx.clearRect(0, 0, 500, 500);
