@@ -2,7 +2,7 @@ let canvas, ctx;
 let Dragging = false;
 let black = true;
 let stones = [];
-let grid = []
+let grid = [];
 let res = 13;
 let lastposX = null;
 let lastposY = null;
@@ -15,7 +15,7 @@ window.addEventListener('load', (event) => {
     ctx.textBaseline = "top";
     ctx.font = "15px Alata";
     DrawGrid();
-  });
+});
 
 document.addEventListener("DOMContentLoaded", (event) => {
     canvas = document.getElementById('canvas');
