@@ -13,7 +13,7 @@ const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 window.addEventListener('load', (event) => {
     ctx.textBaseline = "top";
-    ctx.font = "15px Alata";
+    ctx.font = "15px Roboto Mono";
     DrawGrid();
 });
 
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 }
                 for (let y = 0; y < res; y++) {
                     for (let x = 0; x < res; x++) {
-                        if (GetDistance(grid[x][y].x, grid[x][y].y, stones[i].x, stones[i].y) <= 15.49) {
+                        if (GetDistance(grid[x][y].x, grid[x][y].y, stones[i].x, stones[i].y) <= 20) {
                             stones[i].x = grid[x][y].x;
                             stones[i].y = grid[x][y].y;
                             break;
@@ -124,16 +124,19 @@ function getCursorPosition(canvas, event) {
 }
 function DrawCircle(x, y, black) {
     ctx.beginPath();
-    ctx.arc(x, y, 10, 2 * Math.PI, false);
+    
     if (black) {
-        ctx.fillStyle = "#6B6B6B";
+        ctx.arc(x, y, 8, 2 * Math.PI, false);
+        ctx.fillStyle = "black";
+        ctx.fill();
     } else {
+        ctx.arc(x, y, 6, 2 * Math.PI, false);
         ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "black";
+        ctx.stroke();
     }
-    ctx.fill();
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "black";
-    ctx.stroke();
 }
 function DrawGrid(){
     for (let x = 0; x < res; x++) {
@@ -173,6 +176,7 @@ class Stone {
         this.dragging = false;
     }
     draw() {
+        
         DrawCircle(this.x, this.y, this.black);
     }
 }
